@@ -62,6 +62,10 @@
 		<nav class="header-smart-menu">
     		
     			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -223,7 +227,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://kalin.club/2017/03/15/我的第一篇博客/" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay46EMAxE0f7/n2a2LQ2YqnKYEc7NqtVCkMPCxI/PR17H11Ku+b7y6p+r3/VTWgsGDBivZRzlqrdY36He9O871LB6DzBgwNiBod8627qylfo+N3uGAQMGDOEA5wbu+gXBgAEDxiqG/sga/88BFwYMGC9hZEc9vTynv4jHc3EYMGC8kKFX3f/+9yP9DRgwYLyKcZhLR2aNySNaMGDAmM3QA1xWYnPxrf3AgAFjA4bbUHQT1FUFuMuiGwwYMIYystJVlnDqW3dfIgwYMPZkKKV5ZVQiw9gNABgwYGzAyMrxnWGL/os4ORrCgAFjNEMZfchKYEpIVV7BzUEWBgwYoxnPna/WXmPgYcCAMY7RD5GdlFV5fVI6DQMGjNGMziOz42OWrBqfBBgwYAxlZMV6fWhVD9ZugxMGDBj7MPqhsN8QVbJtN6DDgAFjEkN/jBsu9ZZD1pA4GQ6DAQPGOIY79KAf5lyYG+5PqoYwYMAYynAf3ElB9QOf/cWAAQPGBgw3sLokvfGZPQUGDBi7MfTGgJv06gU7t0kAAwaMPRn6scwt4nd6FzdjYTBgwBjKOMzlMjpXGoEbBgwYoxnu+IWerOp3WBvQYcCAMZXRSUSzIQl9vEwP0zBgwNiB4QY+9yipj4VloR8GDBgwOgW4Ovm0GwBZ/IYBA8ZmDHfTa4cqpP4GDBgwhjJWDVW4aa1yZ6MTCwMGjKGM7NyV/aMHXL3ABwMGjNGMH3rvQc/hddmrAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,7 +272,7 @@
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
-		innerArchive: false,
+		innerArchive: true,
 		showTags: false
 	}
 </script>
@@ -285,18 +289,81 @@
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
   </div>
   <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="请输入关键字查找">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
     
 
     

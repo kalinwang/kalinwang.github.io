@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Life&#39;s A Struggle</title>
+  <subtitle>成长或负隅顽抗 有轮廓明如灯指向生命传承</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://kalin.club/"/>
+  <updated>2017-03-15T09:43:05.000Z</updated>
+  <id>http://kalin.club/</id>
+  
+  <author>
+    <name>Kalin</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="http://kalin.club/2017/03/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://kalin.club/2017/03/15/我的第一篇博客/</id>
+    <published>2017-03-15T09:43:05.000Z</published>
+    <updated>2017-03-15T09:43:05.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
