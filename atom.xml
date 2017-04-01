@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kalin.club/"/>
-  <updated>2017-04-01T19:08:19.000Z</updated>
+  <updated>2017-04-01T19:21:08.000Z</updated>
   <id>http://kalin.club/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kalin.club/2017/03/31/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E7%BA%AA%E5%BD%95/"/>
     <id>http://kalin.club/2017/03/31/Hexo博客搭建全纪录/</id>
     <published>2017-03-31T07:00:33.000Z</published>
-    <updated>2017-04-01T19:08:19.000Z</updated>
+    <updated>2017-04-01T19:21:08.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="零、了解搭建博客的流程"><a href="#零、了解搭建博客的流程" class="headerlink" title="零、了解搭建博客的流程"></a>零、了解搭建博客的流程</h3><p>在开始之前我们要知道整个博客的一个搭建过程：<br>一、搭建本地博客；在电脑上安装<a href="https://git-scm.com/" target="_blank" rel="external">Git</a>和<a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a>，安装<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>博客框架；<br>二、部署远程博客；注册<a href="https://github.com/" target="_blank" rel="external">Github</a>账号，然后在上面创建一个Repository，简单配置一下，博客的基本框架就建立好了。<br>至于搭建好了怎么写博客，简单学习一下Markdown语法就好。既然已经了解搭建的流程，那么现在就开始进入实际的操作。<br><!-- m --></p>
 <h3 id="一、搭建本地博客"><a href="#一、搭建本地博客" class="headerlink" title="一、搭建本地博客"></a>一、搭建本地博客</h3><p>下面讲怎么在Mac下的搭建方法，其他操作系统可能不太一样，不过也大同小异啦。这里使用了macOS缺失的软件包管理器<a href="https://brew.sh/index_zh-cn.html/" target="_blank" rel="external">Homebrew</a>进行安装，下面是安装过程：<br><strong>1.安装<a href="https://brew.sh/index_zh-cn.html/" target="_blank" rel="external">Homebrew</a></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
@@ -40,7 +40,7 @@
 <p>保存。cd到Hexo的根目录，依次执行下面的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean #清除缓存文件</div><div class="line">$ hexo g #启动服务预览</div><div class="line">$ hexo d #远程部署</div></pre></td></tr></table></figure></p>
 <p>如果发布的时候出现错误：<code>ERROR Deployer not found: git</code>执行命令<code>$ npm install hexo-deployer-git --save</code>安装hexo git就可以解决了。<br>部署时可能会让你输入git的用户名和密码，直接输入即可。部署完成后出现：<code>INFO  Deploy done: git</code>说明已经部署成功了。在浏览器地址栏中输入<code>http://&lt;username&gt;.github.io/</code>可以访问自己的博客了。<br>至此基本的Hexo博客就搭建好了。</p>
 <blockquote>
-<p>hexo常用命令：<br>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化<br>hexo generate #生成静态页面<br>hexo server #启动服务预览<br>hexo clean #清除缓存文件<br><em>简写</em><br>hexo n “我的博客标题” == hexo new “我的博客标题” #新建博文<br>hexo g == hexo generate        #生成静态页面<br>hexo s == hexo server    #启动服务预览<br>hexo d == hexo deploy    #部署<br><em>服务器</em><br>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP<br>hexo clean #清除缓存 网页正常情况下可以忽略此条命令<br>hexo g #生成静态网页<br>hexo d #开始部署<br><em>监视文件变动</em><br>hexo generate #使用 Hexo 生成静态文件快速而且简单<br>hexo generate –watch #监视文件变动<br><em>完成后部署</em><br>hexo s -g  == hexo g + hexo s<br>hexo d -g  == hexo g + hexo d<br><em>模版</em><br>hexo new “postName” #新建博文<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面<br>hexo server #启动服务预览<br>hexo deploy #将.deploy目录部署到GitHub<br><em>新建</em><br>hexo new photo “My Gallery”<br>hexo new “Hello World” –lang tw<br><em>写作</em><br>hexo new page <title><br>hexo new post <title></title></title></p>
+<p>hexo常用命令：<br><em>基本</em><br>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化<br><em>服务器</em><br>hexo server #hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义IP<br>hexo clean #清除缓存文件<br>hexo generate #生成静态页面<br>hexo deploy #开始部署<br><em>监视文件变动</em><br>hexo generate –watch #监视文件变动<br><em>模版</em><br>hexo new “博客标题” #新建博文<br>hexo new page “pageName” #新建页面<br><em>简写</em><br>hexo n “博客标题” == hexo new “博客标题” #新建博文<br>hexo g == hexo generate        #生成静态页面<br>hexo s == hexo server    #启动服务预览<br>hexo d == hexo deploy    #远程部署<br><em>组合命令</em><br>hexo s -g  == hexo g + hexo s<br>hexo d -g  == hexo g + hexo d</p>
 </blockquote>
 <p><strong>-End-</strong></p>
 ]]></content>

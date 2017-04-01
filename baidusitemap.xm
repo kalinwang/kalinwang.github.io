@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://kalin.club/2017/03/31/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E7%BA%AA%E5%BD%95/</loc>
-    <lastmod>2017-04-01T19:08:19.000Z</lastmod>
+    <lastmod>2017-04-01T19:21:08.000Z</lastmod>
     <data>
         <display>
         <title>Hexo博客搭建全纪录</title>
